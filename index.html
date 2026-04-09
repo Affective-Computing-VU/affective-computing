@@ -1,11 +1,30 @@
----
-layout: default
-title: Home
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Affective Computing Group — Vanderbilt University</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
 
-<div class="hero">
-  <div class="hero-top">
-    <div class="hero-inner">
+<nav>
+  <a class="nav-brand" href="index.html">
+    <span class="nav-main">Affective Computing Group</span>
+    <span class="nav-sub">Vanderbilt University</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="people.html">People</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="hero">
+    <div class="hero-top">
       <div class="hero-kicker">
         <span class="kicker-line"></span>
         <span class="kicker-text">College of Connected Computing</span>
@@ -13,77 +32,96 @@ title: Home
       <h1>Understanding how <em>emotions</em> shape human–machine interaction</h1>
       <p class="hero-desc">We build systems that recognize, model, and respond to human affect — bridging cognitive science, AI, and social simulation.</p>
     </div>
-  </div>
-  <div class="hero-bottom">
-    <div class="hero-bottom-inner">
-      <div class="hero-meta-strip">
-        <div class="meta-row">
-          <div class="meta-icon">
-            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <div class="hero-bottom">
+      <div class="hero-bottom-inner">
+        <div class="hero-meta-strip">
+          <div class="meta-row">
+            <div class="meta-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div>
+              <span class="meta-label">Institution</span>
+              <span class="meta-val">Vanderbilt University</span>
+            </div>
           </div>
-          <div>
-            <span class="meta-label">Institution</span>
-            <span class="meta-val">Vanderbilt University</span>
+          <div class="meta-row">
+            <div class="meta-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div>
+              <span class="meta-label">College</span>
+              <span class="meta-val">College of Connected Computing</span>
+            </div>
           </div>
-        </div>
-        <div class="meta-row">
-          <div class="meta-icon">
-            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          </div>
-          <div>
-            <span class="meta-label">College</span>
-            <span class="meta-val">College of Connected Computing</span>
-          </div>
-        </div>
-        <div class="meta-row">
-          <div class="meta-icon">
-            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </div>
-          <div>
-            <span class="meta-label">Principal Investigator</span>
-            <span class="meta-val">Jonathan Gratch</span>
-          </div>
-        </div>
-      </div>
-      <div class="photo-grid">
-        <div class="ph ph-main">
-          <div class="ph-placeholder">
-            <div class="ph-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-            <span>Lab photo</span>
+          <div class="meta-row">
+            <div class="meta-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <span class="meta-label">Principal Investigator</span>
+              <span class="meta-val">Jonathan Gratch</span>
+            </div>
           </div>
         </div>
-        <div class="ph">
-          <div class="ph-placeholder">
-            <div class="ph-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-            <span>Team</span>
+        <div class="photo-grid">
+          <!-- Replace ph-placeholder divs with <img> tags once you have photos -->
+          <!-- Example: <img src="assets/img/lab.jpg" alt="Lab photo"> -->
+          <div class="ph ph-main">
+            <div class="ph-placeholder">
+              <div class="ph-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <span>Lab photo</span>
+            </div>
           </div>
-        </div>
-        <div class="ph">
-          <div class="ph-placeholder">
-            <div class="ph-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-            <span>Research</span>
+          <div class="ph">
+            <div class="ph-placeholder">
+              <div class="ph-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <span>Team</span>
+            </div>
+          </div>
+          <div class="ph">
+            <div class="ph-placeholder">
+              <div class="ph-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+              <span>Research</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="pw">
-  <section class="sec">
-    <div class="sec-hd"><span class="sec-rule"></span><h2 class="sec-t">About the Lab</h2></div>
-    <p class="about-text">The Affective Computing Group at Vanderbilt University investigates how emotional and social intelligence can be modeled computationally and embedded in interactive systems. Our work spans virtual humans, negotiation agents, and affective interfaces — with applications in training, therapy, and education.</p>
-  </section>
+  <div class="pw">
+    <section class="sec">
+      <div class="sec-hd"><span class="sec-rule"></span><h2 class="sec-t">About the Lab</h2></div>
+      <p class="about-text">The Affective Computing Group at Vanderbilt University investigates how emotional and social intelligence can be modeled computationally and embedded in interactive systems. Our work spans virtual humans, negotiation agents, and affective interfaces — with applications in training, therapy, and education.</p>
+    </section>
 
-  <section class="sec">
-    <div class="sec-hd"><span class="sec-rule"></span><h2 class="sec-t">News</h2></div>
-    <div class="news-list">
-      {% for item in site.data.news %}
-      <div class="news-item">
-        <span class="news-date">{{ item.date }}</span>
-        <span class="news-txt">{{ item.text }}</span>
+    <section class="sec">
+      <div class="sec-hd"><span class="sec-rule"></span><h2 class="sec-t">News</h2></div>
+      <div class="news-list">
+        <!-- ✏️ Edit news items here -->
+        <div class="news-item">
+          <span class="news-date">Apr 2025</span>
+          <span class="news-txt">Add your latest lab news here — paper acceptances, talks, awards, and updates.</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">Feb 2025</span>
+          <span class="news-txt">Add your latest lab news here.</span>
+        </div>
+        <div class="news-item">
+          <span class="news-date">Jan 2025</span>
+          <span class="news-txt">Add your latest lab news here.</span>
+        </div>
       </div>
-      {% endfor %}
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="f-l">© 2025 <strong>Affective Computing Group</strong> · Vanderbilt University</span>
+    <span class="f-r">College of Connected Computing</span>
+  </div>
+</footer>
+
+</body>
+</html>

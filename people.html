@@ -1,66 +1,110 @@
----
-layout: default
-title: People
-permalink: /people/
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>People — Affective Computing Group</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
 
-<div class="pw">
-  <section class="sec">
-    <div class="sec-hd"><span class="sec-rule"></span><h2 class="sec-t">Our Team</h2></div>
+<nav>
+  <a class="nav-brand" href="index.html">
+    <span class="nav-main">Affective Computing Group</span>
+    <span class="nav-sub">Vanderbilt University</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="people.html" class="active">People</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
-    <div class="pi-card">
-      <div class="av">JG</div>
-      <div>
-        <div class="pi-name">Jonathan Gratch</div>
-        <div class="pi-role">Principal Investigator · Professor</div>
-        <p class="pi-bio">Professor at Vanderbilt University's College of Connected Computing. His research focuses on the interplay of emotion, social behavior, and intelligent systems — developing computational models that underpin virtual humans capable of emotionally intelligent interaction.</p>
-        <div class="pi-lnks">
-          <a href="#">Google Scholar</a>
-          <a href="#">CV</a>
-          <a href="mailto:{{ site.lab.email }}">Email</a>
+<main>
+  <div class="pw">
+    <section class="sec">
+      <div class="sec-hd"><span class="sec-rule"></span><h2 class="sec-t">Our Team</h2></div>
+
+      <!-- PI -->
+      <div class="pi-card">
+        <div class="av">JG</div>
+        <div>
+          <div class="pi-name">Jonathan Gratch</div>
+          <div class="pi-role">Principal Investigator · Professor</div>
+          <p class="pi-bio">Professor at Vanderbilt University's College of Connected Computing. His research focuses on the interplay of emotion, social behavior, and intelligent systems — developing computational models that underpin virtual humans capable of emotionally intelligent interaction.</p>
+          <div class="pi-lnks">
+            <a href="#">Google Scholar</a>
+            <a href="#">CV</a>
+            <a href="mailto:jonathan.gratch@vanderbilt.edu">Email</a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="grp-lbl">PhD Students</div>
-    <div class="p-grid">
-      {% for p in site.data.people.phd %}
-      <div class="p-card">
-        <div class="p-av">{{ p.initials }}</div>
-        <div class="p-name">{{ p.name }}</div>
-        <div class="p-role">PhD · {{ p.year }}</div>
-        <div class="p-focus">{{ p.topic }}</div>
+      <!-- ✏️ PhD Students — add/remove .p-card blocks as needed -->
+      <div class="grp-lbl">PhD Students</div>
+      <div class="p-grid">
+
+        <div class="p-card">
+          <div class="p-av">JH</div>
+          <div class="p-name">James Hale</div>
+          <div class="p-role">PhD Student</div>
+          <div class="p-focus">Research topic</div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-av">BH</div>
+          <div class="p-name">Bin Han</div>
+          <div class="p-role">PhD Student</div>
+          <div class="p-focus">Research topic</div>
+        </div>
+
+        <div class="p-card">
+          <div class="p-av">AT</div>
+          <div class="p-name">Ala Tak</div>
+          <div class="p-role">PhD Student</div>
+          <div class="p-focus">Research topic</div>
+        </div>
+
       </div>
-      {% endfor %}
-    </div>
 
-    {% if site.data.people.ms %}
-    <div class="grp-lbl">Master's Students</div>
-    <div class="p-grid">
-      {% for p in site.data.people.ms %}
-      <div class="p-card">
-        <div class="p-av">{{ p.initials }}</div>
-        <div class="p-name">{{ p.name }}</div>
-        <div class="p-role">MS · {{ p.year }}</div>
-        <div class="p-focus">{{ p.topic }}</div>
+      <!-- ✏️ Master's Students — remove this block if none -->
+      <div class="grp-lbl">Master's Students</div>
+      <div class="p-grid">
+
+        <div class="p-card">
+          <div class="p-av">??</div>
+          <div class="p-name">Student Name</div>
+          <div class="p-role">MS Student</div>
+          <div class="p-focus">Research topic</div>
+        </div>
+
       </div>
-      {% endfor %}
-    </div>
-    {% endif %}
 
-    {% if site.data.people.alumni %}
-    <div class="grp-lbl">Alumni</div>
-    <div class="p-grid">
-      {% for p in site.data.people.alumni %}
-      <div class="p-card">
-        <div class="p-av">{{ p.initials | default: "??" }}</div>
-        <div class="p-name">{{ p.name }}</div>
-        <div class="p-role">{{ p.degree }}</div>
-        <div class="p-focus">{{ p.affiliation }}</div>
+      <!-- ✏️ Alumni — remove this block if none -->
+      <div class="grp-lbl">Alumni</div>
+      <div class="p-grid">
+
+        <div class="p-card">
+          <div class="p-av">??</div>
+          <div class="p-name">Graduate Name</div>
+          <div class="p-role">PhD, 2024</div>
+          <div class="p-focus">Current affiliation</div>
+        </div>
+
       </div>
-      {% endfor %}
-    </div>
-    {% endif %}
 
-  </section>
-</div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="f-l">© 2025 <strong>Affective Computing Group</strong> · Vanderbilt University</span>
+    <span class="f-r">College of Connected Computing</span>
+  </div>
+</footer>
+
+</body>
+</html>

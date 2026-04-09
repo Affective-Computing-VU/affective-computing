@@ -1,22 +1,78 @@
----
-layout: default
-title: Publications
-permalink: /publications/
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications — Affective Computing Group</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
 
-<div class="pw">
-  <section class="sec">
-    <div class="sec-hd"><span class="sec-rule"></span><h2 class="sec-t">Publications</h2></div>
-    <div class="pub-list">
-      {% for pub in site.data.publications %}
-      <div class="pub-item">
-        <span class="pub-y">{{ pub.year }}</span>
-        <div>
-          <div class="pub-t">{% if pub.url %}<a href="{{ pub.url }}" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--border)">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}</div>
-          <div class="pub-v">{{ pub.venue }}</div>
+<nav>
+  <a class="nav-brand" href="index.html">
+    <span class="nav-main">Affective Computing Group</span>
+    <span class="nav-sub">Vanderbilt University</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="people.html">People</a></li>
+    <li><a href="publications.html" class="active">Publications</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="pw">
+    <section class="sec">
+      <div class="sec-hd"><span class="sec-rule"></span><h2 class="sec-t">Publications</h2></div>
+      <!-- ✏️ Add/remove .pub-item blocks as needed -->
+      <!-- To link a paper: wrap .pub-t text in <a href="https://..."> -->
+      <div class="pub-list">
+
+        <div class="pub-item">
+          <span class="pub-y">2025</span>
+          <div>
+            <div class="pub-t">Paper title goes here</div>
+            <div class="pub-v">Conference or Journal Name</div>
+          </div>
         </div>
+
+        <div class="pub-item">
+          <span class="pub-y">2024</span>
+          <div>
+            <div class="pub-t">Paper title goes here</div>
+            <div class="pub-v">Conference or Journal Name</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-y">2024</span>
+          <div>
+            <div class="pub-t">Paper title goes here</div>
+            <div class="pub-v">Conference or Journal Name</div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-y">2023</span>
+          <div>
+            <div class="pub-t">Paper title goes here</div>
+            <div class="pub-v">Conference or Journal Name</div>
+          </div>
+        </div>
+
       </div>
-      {% endfor %}
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="f-l">© 2025 <strong>Affective Computing Group</strong> · Vanderbilt University</span>
+    <span class="f-r">College of Connected Computing</span>
+  </div>
+</footer>
+
+</body>
+</html>

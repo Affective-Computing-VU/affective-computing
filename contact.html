@@ -1,29 +1,60 @@
----
-layout: default
-title: Contact
-permalink: /contact/
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Affective Computing Group</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
 
-<div class="pw">
-  <section class="sec">
-    <div class="sec-hd"><span class="sec-rule"></span><h2 class="sec-t">Contact</h2></div>
-    <div class="c-grid">
-      <div class="c-blk">
-        <div class="c-lbl">Location</div>
-        <p>{{ site.lab.university }}<br>{{ site.lab.college }}<br>{{ site.lab.location }}</p>
+<nav>
+  <a class="nav-brand" href="index.html">
+    <span class="nav-main">Affective Computing Group</span>
+    <span class="nav-sub">Vanderbilt University</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="people.html">People</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="pw">
+    <section class="sec">
+      <div class="sec-hd"><span class="sec-rule"></span><h2 class="sec-t">Contact</h2></div>
+      <!-- ✏️ Edit contact details here -->
+      <div class="c-grid">
+        <div class="c-blk">
+          <div class="c-lbl">Location</div>
+          <p>Vanderbilt University<br>College of Connected Computing<br>Nashville, TN</p>
+        </div>
+        <div class="c-blk">
+          <div class="c-lbl">Email</div>
+          <p><a href="mailto:jonathan.gratch@vanderbilt.edu">jonathan.gratch@vanderbilt.edu</a></p>
+        </div>
+        <div class="c-blk">
+          <div class="c-lbl">Office Hours</div>
+          <p>By appointment</p>
+        </div>
+        <div class="c-blk">
+          <div class="c-lbl">Prospective Students</div>
+          <p>Interested in joining the lab? Send your CV and a brief description of your research interests.</p>
+        </div>
       </div>
-      <div class="c-blk">
-        <div class="c-lbl">Email</div>
-        <p><a href="mailto:{{ site.lab.email }}">{{ site.lab.email }}</a></p>
-      </div>
-      <div class="c-blk">
-        <div class="c-lbl">Office Hours</div>
-        <p>By appointment</p>
-      </div>
-      <div class="c-blk">
-        <div class="c-lbl">Prospective Students</div>
-        <p>Interested in joining the lab? Send your CV and a brief description of your research interests.</p>
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="f-l">© 2025 <strong>Affective Computing Group</strong> · Vanderbilt University</span>
+    <span class="f-r">College of Connected Computing</span>
+  </div>
+</footer>
+
+</body>
+</html>
