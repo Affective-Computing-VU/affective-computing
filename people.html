@@ -1,0 +1,66 @@
+---
+layout: default
+title: People
+permalink: /people/
+---
+
+<div class="pw">
+  <section class="sec">
+    <div class="sec-hd"><span class="sec-rule"></span><h2 class="sec-t">Our Team</h2></div>
+
+    <div class="pi-card">
+      <div class="av">JG</div>
+      <div>
+        <div class="pi-name">Jonathan Gratch</div>
+        <div class="pi-role">Principal Investigator · Professor</div>
+        <p class="pi-bio">Professor at Vanderbilt University's College of Connected Computing. His research focuses on the interplay of emotion, social behavior, and intelligent systems — developing computational models that underpin virtual humans capable of emotionally intelligent interaction.</p>
+        <div class="pi-lnks">
+          <a href="#">Google Scholar</a>
+          <a href="#">CV</a>
+          <a href="mailto:{{ site.lab.email }}">Email</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grp-lbl">PhD Students</div>
+    <div class="p-grid">
+      {% for p in site.data.people.phd %}
+      <div class="p-card">
+        <div class="p-av">{{ p.initials }}</div>
+        <div class="p-name">{{ p.name }}</div>
+        <div class="p-role">PhD · {{ p.year }}</div>
+        <div class="p-focus">{{ p.topic }}</div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% if site.data.people.ms %}
+    <div class="grp-lbl">Master's Students</div>
+    <div class="p-grid">
+      {% for p in site.data.people.ms %}
+      <div class="p-card">
+        <div class="p-av">{{ p.initials }}</div>
+        <div class="p-name">{{ p.name }}</div>
+        <div class="p-role">MS · {{ p.year }}</div>
+        <div class="p-focus">{{ p.topic }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if site.data.people.alumni %}
+    <div class="grp-lbl">Alumni</div>
+    <div class="p-grid">
+      {% for p in site.data.people.alumni %}
+      <div class="p-card">
+        <div class="p-av">{{ p.initials | default: "??" }}</div>
+        <div class="p-name">{{ p.name }}</div>
+        <div class="p-role">{{ p.degree }}</div>
+        <div class="p-focus">{{ p.affiliation }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </section>
+</div>

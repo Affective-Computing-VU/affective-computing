@@ -1,0 +1,26 @@
+phd:
+  - name: James Hale
+    initials: "JH"
+    year: "PhD Student"
+    topic: Research topic here
+
+  - name: Bin Han
+    initials: "BH"
+    year: "PhD Student"
+    topic: Research topic here
+
+  - name: Ala Tak
+    initials: "AT"
+    year: "PhD Student"
+    topic: Research topic here
+
+ms:
+  - name: Student Name
+    initials: "??"
+    year: "1st year"
+    topic: Research topic here
+
+alumni:
+  - name: Graduate Name
+    degree: PhD, 2024
+    affiliation: Current affiliation
