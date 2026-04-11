@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources — Affective Computing Group</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    .res-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .res-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface, #f9f9f9);
+      border: 1px solid var(--border, #e0e0e0);
+      border-top: 3px solid var(--accent, #7c5cbf);
+      border-radius: 8px;
+      padding: 1.25rem 1.25rem 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .res-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+    .res-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--accent, #7c5cbf);
+      margin-bottom: 0.4rem;
+    }
+    .res-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary, #555);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .res-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--accent, #7c5cbf);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="index.html">
+    <span class="nav-main">Affective Computing Group</span>
+    <span class="nav-sub">Vanderbilt University</span>
+  </a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="people.html">People</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="resources.html" class="active">Resources</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="pw">
+    <section class="sec">
+      <div class="sec-hd"><span class="sec-rule"></span><h2 class="sec-t">Datasets &amp; Resources</h2></div>
+
+      <div class="grp-lbl">Datasets</div>
+      <div class="res-grid">
+
+        <a class="res-card" href="#" target="_blank">
+          <div class="res-name">DAIC — Wizard of Oz (WOZ) Database</div>
+          <div class="res-desc">Selected data from the larger Distress Analysis Interview Corpus (DAIC) developed by ICT. Audio recordings with extensive questionnaire responses of clinical interviews conducted by an animated virtual interviewer "Ellie," designed to support the diagnosis of psychological distress conditions.</div>
+          <span class="res-link">Learn More →</span>
+        </a>
+
+        <a class="res-card" href="#" target="_blank">
+          <div class="res-name">Interactive Arbitration Guide Online (IAGO)</div>
+          <div class="res-desc">Developed by alum Dr. Johnathan Mell, IAGO is a platform for designing computer agents (AIs) that can negotiate with humans in a variety of game types.</div>
+          <span class="res-link">Learn More →</span>
+        </a>
+
+        <a class="res-card" href="#" target="_blank">
+          <div class="res-name">ICT Rapport Dataset</div>
+          <div class="res-desc">Contains audio-visual data, transcriptions, and annotations from interactions between an automated agent telling a story about sexual harassment awareness to a human listener.</div>
+          <span class="res-link">Learn More →</span>
+        </a>
+
+        <a class="res-card" href="#" target="_blank">
+          <div class="res-name">KODIS</div>
+          <div class="res-desc">A dyadic dispute resolution corpus containing thousands of dialogues from over 75 countries. Participants engage in a customer service dispute designed to evoke strong emotions and conflict, with rich dispositional, process, and outcome measures.</div>
+          <span class="res-link">Learn More →</span>
+        </a>
+
+        <a class="res-card" href="#" target="_blank">
+          <div class="res-name">CaSiNo</div>
+          <div class="res-desc">1,030 negotiation dialogues in which two participants act as campsite neighbors negotiating for Food, Water, and Firewood packages based on individual preferences — facilitating linguistically rich and personal conversations.</div>
+          <span class="res-link">Learn More →</span>
+        </a>
+
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="f-l">© 2025 <strong>Affective Computing Group</strong> · Vanderbilt University</span>
+  </div>
+</footer>
+
+</body>
+</html>

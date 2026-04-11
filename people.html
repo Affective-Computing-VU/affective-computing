@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>People — Affective Computing Group</title>
   <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    .alumni-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .alum-item {
+      background: var(--surface, #f9f9f9);
+      border-left: 3px solid var(--accent, #7c5cbf);
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+    }
+    .alum-name { font-weight: 600; font-size: 0.95rem; }
+    .alum-meta { font-size: 0.8rem; color: var(--muted, #888); margin: 0.15rem 0 0.35rem; }
+    .alum-thesis { font-size: 0.82rem; color: var(--text-secondary, #555); font-style: italic; line-height: 1.4; }
+    .plain-list { list-style: none; padding: 0; margin: 0 0 2rem; }
+    .plain-list li { padding: 0.4rem 0; border-bottom: 1px solid var(--border, #eee); font-size: 0.92rem; }
+    .plain-list li:last-child { border-bottom: none; }
+  </style>
 </head>
 <body>
 
@@ -17,8 +37,9 @@
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="research.html">Research</a></li>
-    <li><a href="people.html" class="active">People</a></li>
+    <li><a href="people.html">People</a></li>
     <li><a href="publications.html">Publications</a></li>
+    <li><a href="resources.html" class="active">Resources</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
@@ -63,6 +84,17 @@
         <div class="p-card">
           <a class="p-link" href="#" target="_blank">
             <div class="p-av">
+              <img src="assets/img/Ala.jpg" alt="Ala Tak">
+            </div>
+            <div class="p-name">Ala Tak</div>
+            <div class="p-role">PhD Student</div>
+            <div class="p-focus">NLP, Affective Computing, HCI, Interpretability</div>
+          </a>
+        </div>
+        
+        <div class="p-card">
+          <a class="p-link" href="#" target="_blank">
+            <div class="p-av">
               <img src="assets/img/Bin.jpg" alt="Bin Han">
             </div>
             <div class="p-name">Bin Han</div>
@@ -71,44 +103,107 @@
           </a>
         </div>
 
+
+
+      </div>
+
+      <!-- Master's Students -->
+      <div class="grp-lbl">Master's Students</div>
+      <div class="p-grid">
+
         <div class="p-card">
           <a class="p-link" href="#" target="_blank">
             <div class="p-av">
-              <img src="assets/img/Ala.jpg" alt="Ala Tak">
+              <img src="assets/img/Joy.jpg" alt="Joy" onerror="this.parentElement.innerHTML='JO'">
             </div>
-            <div class="p-name">Ala Tak</div>
-            <div class="p-role">PhD Student</div>
-            <div class="p-focus">NLP, Affective Computing, HCI, Interpretability</div>
+            <div class="p-name">Joy Mou</div>
+            <div class="p-role">MS Student</div>
+            <div class="p-focus">Affective Computing</div>
           </a>
         </div>
 
       </div>
 
-      <!-- ✏️ Master's Students — remove this block if none -->
-      <div class="grp-lbl">Master's Students</div>
-      <div class="p-grid">
-
-        <div class="p-card">
-          <div class="p-av">??</div>
-          <div class="p-name">Student Name</div>
-          <div class="p-role">MS Student</div>
-          <div class="p-focus">Research topic</div>
+      <!-- Former PhD Students -->
+      <div class="grp-lbl">Former PhD Students</div>
+      <div class="alumni-list">
+        <div class="alum-item">
+          <div class="alum-name">Dr. Wenji Mao</div>
+          <div class="alum-meta">PhD 2006</div>
+          <div class="alum-thesis">Modeling Social Causality and Social Judgment in Multi-agent Interactions</div>
         </div>
-
+        <div class="alum-item">
+          <div class="alum-name">Anna Okhmatovskaia</div>
+          <div class="alum-meta">M.S. 2006</div>
+        </div>
+        <div class="alum-item">
+          <div class="alum-name">Dr. Hyeoksoo Kim</div>
+          <div class="alum-meta">PhD 2008</div>
+          <div class="alum-thesis">A Planner-Independent Approach to Human-Computer Interactive Planning</div>
+        </div>
+        <div class="alum-item">
+          <div class="alum-name">Dr.Celso de Melo</div>
+          <div class="alum-meta">PhD 2012</div>
+          <div class="alum-thesis">The Interpersonal Effect of Emotion in Decision-making and Social Dilemmas</div>
+        </div>
+        <div class="alum-item">
+          <div class="alum-name">Dr. Lixing Huang</div>
+          <div class="alum-meta">PhD 2013</div>
+          <div class="alum-thesis">Parasocial Consensus Sampling: Modeling Human Nonverbal Behaviors from Multiple Perspectives</div>
+        </div>
+        <div class="alum-item">
+          <div class="alum-name">Dr. Zahra Nazari</div>
+          <div class="alum-meta">PhD 2017</div>
+          <div class="alum-thesis">Automated Negotiation with Humans</div>
+        </div>
+        <div class="alum-item">
+          <div class="alum-name">Sophie Mallaro</div>
+          <div class="alum-meta">Left program for industry</div>
+        </div>
+        <div class="alum-item">
+          <div class="alum-name">Dr. Johnathan Mell</div>
+          <div class="alum-meta">PhD 2020</div>
+          <div class="alum-thesis">A Framework for Research in Human-Agent Negotiation</div>
+        </div>
+        <div class="alum-item">
+          <div class="alum-name">Dr. Emmanuel Johnson</div>
+          <div class="alum-meta">PhD 2021</div>
+          <div class="alum-thesis">Improving Negotiation Training Through Automated Personalized Feedback</div>
+        </div>
+        <div class="alum-item">
+          <div class="alum-name">Dr. Su Lei</div>
+          <div class="alum-meta">PhD 2023</div>
+          <div class="alum-thesis">Building and Validating Computational Models of Emotional Expressivity in a Natural Social Task</div>
+        </div>
+        <div class="alum-item">
+          <div class="alum-name">Dr. Kushal Chawla</div>
+          <div class="alum-meta">PhD 2024 (co-advisor)</div>
+          <div class="alum-thesis">Computational foundations for mixed-motive human-machine dialogue</div>
+        </div>
+        <div class="alum-item">
+          <div class="alum-name">Dr. Jessie Hoegen</div>
+          <div class="alum-meta">PhD 2024</div>
+          <div class="alum-thesis">Decoding Situational Perspective: Incorporating Contextual Influences into Facial Expression Perception Modeling</div>
+        </div>
       </div>
 
-      <!-- ✏️ Alumni — remove this block if none -->
-      <div class="grp-lbl">Alumni</div>
-      <div class="p-grid">
+      <!-- Former Postdocs -->
+      <div class="grp-lbl">Former Postdocs</div>
+      <ul class="plain-list">
+        <li>Dr. Peter Khooshabeh</li>
+        <li>Dr. Gale Lucas</li>
+        <li>Dr. Ahyoung Choi</li>
+        <li>Dr. Sin-hwa Kang</li>
+        <li>Dr. Wendy Treynor</li>
+        <li>Dr. Ning Wang</li>
+      </ul>
 
-        <div class="p-card">
-          <div class="p-av">??</div>
-          <div class="p-name">Graduate Name</div>
-          <div class="p-role">PhD, 2024</div>
-          <div class="p-focus">Current affiliation</div>
-        </div>
-
-      </div>
+      <!-- Collaborators -->
+      <div class="grp-lbl">Collaborators</div>
+      <ul class="plain-list">
+        <li>LP Morency</li>
+        <li>Stefan Scherer</li>
+      </ul>
 
     </section>
   </div>
