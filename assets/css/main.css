@@ -20,14 +20,21 @@ body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--txt
 main { flex: 1; }
 
 /* NAV */
-nav { background: var(--blk); border-bottom: 3px solid var(--gold); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 60px; position: sticky; top: 0; z-index: 300; }
-.nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; }
+nav { background: var(--blk); border-bottom: 3px solid var(--gold); display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; min-height: 60px; position: sticky; top: 0; z-index: 300; flex-wrap: wrap; gap: 0; }
+.nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 1px; padding: 10px 0; order: 1; }
 .nav-main { font-family: 'Outfit', sans-serif; font-size: 17px; font-weight: 600; color: #fff; line-height: 1.2; }
 .nav-sub { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .18em; color: var(--gold); text-transform: uppercase; }
-.nav-links { display: flex; gap: 2px; list-style: none; }
+.nav-links { display: flex; gap: 2px; list-style: none; order: 2; }
 .nav-links a { display: block; font-size: 14px; color: rgba(255,255,255,.55); padding: 7px 15px; border-radius: 4px; transition: all .18s; text-decoration: none; }
 .nav-links a:hover { color: #fff; background: rgba(255,255,255,.07); }
 .nav-links a.active { color: var(--gold); background: rgba(207,174,112,.1); }
+
+/* HAMBURGER - hidden on desktop */
+.nav-toggle { display: none; order: 2; flex-direction: column; justify-content: center; align-items: center; gap: 6px; cursor: pointer; background: none; border: 1.5px solid rgba(255,255,255,.3); border-radius: 6px; width: 44px; height: 44px; flex-shrink: 0; padding: 0; }
+.nav-toggle span { width: 20px; height: 2px; background: #fff; border-radius: 2px; transition: all .25s; display: block; }
+.nav-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* PAGE WRAP */
 .pw { max-width: 960px; margin: 0 auto; padding: 0 2rem 5rem; }
@@ -106,7 +113,7 @@ nav { background: var(--blk); border-bottom: 3px solid var(--gold); display: fle
 .grp-lbl { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 500; color: var(--muted); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: .14em; padding-bottom: .6rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: .75rem; }
 .grp-lbl::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 .p-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
-.p-card { background: var(--srf); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 1.25rem; transition: all .18s; text-align: center; overflow: hidden; position: relative; }
+.p-card { background: var(--srf); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 1.25rem; transition: all .18s; text-align: center; overflow: hidden; }
 .p-card:hover { border-color: var(--gold); background: #FEFCF6; }
 .p-card a.p-link { text-decoration: none; color: inherit; display: block; }
 .p-card a.p-link:hover .p-name { color: var(--gold-d); }
@@ -140,9 +147,15 @@ footer { background: var(--blk); border-top: 3px solid var(--gold); padding: 1.7
 .f-l strong { color: var(--gold); font-weight: 500; }
 .f-r { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.2); }
 
+/* MOBILE */
 @media (max-width: 680px) {
   nav { padding: 0 1rem; }
-  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-links { display: none; width: 100%; flex-direction: column; gap: 0; order: 3; border-top: 1px solid rgba(255,255,255,.1); padding: .4rem 0 .8rem; }
+  .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; }
+  .nav-links a { padding: 13px 1rem; font-size: 16px; border-radius: 0; color: rgba(255,255,255,.8); }
+  .nav-links a.active { color: var(--gold); }
   .hero-top { padding: 2.5rem 1rem 2rem; }
   .hero-bottom-inner { grid-template-columns: 1fr; }
   .photo-grid { display: none; }
