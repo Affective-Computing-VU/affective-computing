@@ -64,25 +64,12 @@
           </div>
         </div>
         <div class="photo-grid">
-          <!-- Replace ph-placeholder divs with <img> tags once you have photos -->
-          <!-- Example: <img src="assets/img/lab.jpg" alt="Lab photo"> -->
-          <div class="ph ph-main">
-            <div class="ph-placeholder">
-              <div class="ph-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-              <span>Lab photo</span>
-            </div>
-          </div>
-          <div class="ph">
-            <div class="ph-placeholder">
-              <div class="ph-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-              <span>Team</span>
-            </div>
-          </div>
-          <div class="ph">
-            <div class="ph-placeholder">
-              <div class="ph-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-              <span>Research</span>
-            </div>
+          <!-- ✏️ SLIDESHOW: add as many <img> tags as you want inside ph-main -->
+          <div class="ph ph-main" id="slideshow">
+            <img src="assets/img/ACII-2024.jpg" alt="Lab photo">
+            <!-- <img src="assets/img/photo2.jpg" alt="Lab photo"> -->
+            <!-- <img src="assets/img/photo3.jpg" alt="Lab photo"> -->
+            <div class="slide-dots" id="slide-dots"></div>
           </div>
         </div>
       </div>
@@ -123,5 +110,34 @@
   </div>
 </footer>
 
+
+<script>
+  (function() {
+    const show = document.getElementById('slideshow');
+    if (!show) return;
+    const imgs = show.querySelectorAll('img');
+    if (imgs.length <= 1) { if(imgs[0]) imgs[0].classList.add('slide-active'); return; }
+    const dotsEl = document.getElementById('slide-dots');
+    let cur = 0;
+
+    imgs.forEach((_, i) => {
+      const d = document.createElement('span');
+      d.className = 'slide-dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => go(i);
+      dotsEl.appendChild(d);
+    });
+
+    function go(n) {
+      imgs[cur].classList.remove('slide-active');
+      dotsEl.children[cur].classList.remove('active');
+      cur = n;
+      imgs[cur].classList.add('slide-active');
+      dotsEl.children[cur].classList.add('active');
+    }
+
+    imgs[0].classList.add('slide-active');
+    setInterval(() => go((cur + 1) % imgs.length), 4000);
+  })();
+</script>
 </body>
 </html>
