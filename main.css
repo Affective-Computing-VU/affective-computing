@@ -141,19 +141,19 @@ footer { background: var(--blk); border-top: 3px solid var(--gold); padding: 1.7
 .f-r { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.2); }
 
 /* HAMBURGER */
-.nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; background: none; border: none; }
-.nav-toggle span { width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: all .25s; display: block; }
-.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-toggle.open span:nth-child(2) { opacity: 0; }
-.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-toggle { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; width: 40px; height: 40px; }
+.nav-toggle span { width: 24px; height: 2.5px; background: #fff; border-radius: 2px; transition: all .25s; display: block; }
+.nav-toggle.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
 @media (max-width: 680px) {
   nav { padding: 0 1rem; position: relative; flex-wrap: wrap; height: auto; min-height: 60px; align-items: center; }
-  .nav-toggle { display: flex; }
+  .nav-toggle { display: flex !important; }
   .nav-links { display: none; flex-direction: column; width: 100%; background: var(--blk); border-top: 1px solid rgba(255,255,255,.08); padding: .5rem 0 1rem; gap: 0; }
   .nav-links.open { display: flex; }
   .nav-links li { width: 100%; }
-  .nav-links a { display: block; padding: 10px 1rem; font-size: 15px; border-radius: 0; }
+  .nav-links a { display: block; padding: 12px 1.25rem; font-size: 16px; border-radius: 0; }
   .hero-top { padding: 2.5rem 1rem 2rem; }
   .hero-bottom-inner { grid-template-columns: 1fr; }
   .photo-grid { display: none; }
