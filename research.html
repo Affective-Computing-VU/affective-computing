@@ -5,9 +5,233 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Research — Affective Computing Group</title>
   <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+
+    /* ── 3×2 Grid ── */
+    .ra-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .ra-card {
+      background: var(--srf);
+      padding: 2rem 1.75rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+    .ra-card:hover { background: #FEFCF6; }
+    .ra-card:hover .ra-more { color: var(--gold-d); }
+    .ra-card:hover .ra-more-arrow { transform: translateX(3px); }
+
+    .ra-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .15em;
+      color: var(--gold-d);
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+    .ra-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--blk);
+      line-height: 1.35;
+      margin-bottom: 0.5rem;
+    }
+    .ra-sub {
+      font-size: 12.5px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .ra-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 1.4rem;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--muted);
+      transition: color 0.18s;
+    }
+    .ra-more-arrow {
+      transition: transform 0.18s;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    /* ── Modal overlay ── */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 28, 28, 0.55);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      z-index: 900;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .modal-backdrop.open { display: flex; }
+
+    .modal {
+      background: var(--srf);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      border-radius: 12px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 2.25rem 2.5rem 2.5rem;
+      position: relative;
+      animation: modalIn 0.22s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 22px;
+      line-height: 1;
+      padding: 4px 6px;
+      border-radius: 4px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .modal-close:hover { color: var(--blk); background: var(--border); }
+
+    .modal-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .15em;
+      color: var(--gold-d);
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+    }
+    .modal-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--blk);
+      line-height: 1.25;
+      margin-bottom: 0.35rem;
+    }
+    .modal-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .modal-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: #555;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+    .modal-desc p { margin-bottom: 0.9em; }
+    .modal-desc p:last-child { margin-bottom: 0; }
+
+    .modal-collab {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      font-size: 13.5px;
+      font-weight: 300;
+      color: #555;
+      margin-bottom: 1.5rem;
+      padding: 0.85rem 1.1rem;
+      background: var(--gold-l);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 6px 6px 0;
+    }
+    .modal-collab-label {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gold-d);
+      flex-shrink: 0;
+      margin-right: 0.2rem;
+    }
+    .modal-collab a {
+      color: var(--gold-d);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid var(--gold);
+      transition: color 0.15s;
+    }
+    .modal-collab a:hover { color: var(--blk); }
+    .modal-collab-sep { color: var(--muted); }
+
+    .modal-papers-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold-d);
+      margin-bottom: 0.7rem;
+    }
+    .modal-papers {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .modal-papers li {
+      font-size: 13.5px;
+      color: var(--txt);
+      line-height: 1.55;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .modal-papers li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.57em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .paper-venue {
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: 0.3rem;
+    }
+
+    @media (max-width: 680px) {
+      .ra-grid { grid-template-columns: 1fr; }
+      .modal { padding: 1.75rem 1.5rem 2rem; }
+    }
+    @media (min-width: 681px) and (max-width: 860px) {
+      .ra-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 <body>
-
 
 <nav>
   <a class="nav-brand" href="index.html">
@@ -17,10 +241,10 @@
   <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="research.html">Research</a></li>
+    <li><a href="research.html" class="active">Research</a></li>
     <li><a href="people.html">People</a></li>
     <li><a href="publications.html">Publications</a></li>
-    <li><a href="resources.html" class="active">Resources</a></li>
+    <li><a href="resources.html">Resources</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
@@ -29,42 +253,57 @@
   <div class="pw">
     <section class="sec">
       <div class="sec-hd"><span class="sec-rule"></span><h2 class="sec-t">Research Areas</h2></div>
-      <!-- ✏️ Edit research cards here -->
-      <div class="r-grid">
-        <div class="r-card">
-          <div class="r-num">R — 01</div>
-          <h3>Emotion Modeling</h3>
-          <p>Computational models of appraisal theory and affective dynamics in social agents and virtual humans.</p>
+
+      <div class="ra-grid">
+        <div class="ra-card" onclick="openModal('r01')">
+          <div class="ra-num">R — 01</div>
+          <div class="ra-title">Socially Situated Emotions</div>
+          <div class="ra-sub">Emotion as a dynamic, co-constructed social process</div>
+          <span class="ra-more">More detail <span class="ra-more-arrow">→</span></span>
         </div>
-        <div class="r-card">
-          <div class="r-num">R — 02</div>
-          <h3>Social Simulation</h3>
-          <p>Agent-based simulations of human social behavior, negotiation, and persuasion dynamics.</p>
+        <div class="ra-card" onclick="openModal('r02')">
+          <div class="ra-num">R — 02</div>
+          <div class="ra-title">Computational Models of Emotion</div>
+          <div class="ra-sub">Formalizing how emotion shapes thought and behavior</div>
+          <span class="ra-more">More detail <span class="ra-more-arrow">→</span></span>
         </div>
-        <div class="r-card">
-          <div class="r-num">R — 03</div>
-          <h3>Virtual Humans</h3>
-          <p>Embodied conversational agents with socially intelligent behavior for training and therapy.</p>
+        <div class="ra-card" onclick="openModal('r03')">
+          <div class="ra-num">R — 03</div>
+          <div class="ra-title">Negotiation, Persuasion &amp; Social Influence</div>
+          <div class="ra-sub">Emotion as strategy in social decision-making</div>
+          <span class="ra-more">More detail <span class="ra-more-arrow">→</span></span>
         </div>
-        <div class="r-card">
-          <div class="r-num">R — 04</div>
-          <h3>Multimodal Expression</h3>
-          <p>Recognizing and generating emotion through speech, gesture, gaze, and facial expression.</p>
+        <div class="ra-card" onclick="openModal('r04')">
+          <div class="ra-num">R — 04</div>
+          <div class="ra-title">AI Models as Social Actors</div>
+          <div class="ra-sub">When machines enter the social world</div>
+          <span class="ra-more">More detail <span class="ra-more-arrow">→</span></span>
         </div>
-        <div class="r-card">
-          <div class="r-num">R — 05</div>
-          <h3>Human-AI Interaction</h3>
-          <p>Designing AI systems that build rapport and adapt to emotional context in real-time.</p>
+        <div class="ra-card" onclick="openModal('r05')">
+          <div class="ra-num">R — 05</div>
+          <div class="ra-title">Virtual Humans as Teachers, Practitioners &amp; Scientific Tools</div>
+          <div class="ra-sub">Building systems that both act and reveal</div>
+          <span class="ra-more">More detail <span class="ra-more-arrow">→</span></span>
         </div>
-        <div class="r-card">
-          <div class="r-num">R — 06</div>
-          <h3>Applications</h3>
-          <p>Training, negotiation support, mental health, and education using affective technology.</p>
+        <div class="ra-card" onclick="openModal('r06')">
+          <div class="ra-num">R — 06</div>
+          <div class="ra-title">Societal Implications of AI in Social Roles</div>
+          <div class="ra-sub">What happens when AI mediates human relationships?</div>
+          <span class="ra-more">More detail <span class="ra-more-arrow">→</span></span>
         </div>
       </div>
+
     </section>
   </div>
 </main>
+
+<!-- Modal -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="closeOnBackdrop(event)">
+  <div class="modal" id="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
 
 <footer>
   <div class="footer-inner">
@@ -73,5 +312,150 @@
   </div>
 </footer>
 
+<script>
+  const RESEARCH = {
+    r01: {
+      num: 'R — 01',
+      title: 'Socially Situated Emotions',
+      sub: 'Emotion as a dynamic, co-constructed social process',
+      desc: `<p>Emotion is not a private state revealed through expression—it is a social process constructed in interaction. This work advances the view that emotional meaning emerges from context, perspective, and shared expectations between people.</p>
+             <p>From this perspective, emotion functions less like a signal of an inner state and more like language: a flexible, context-sensitive system for coordinating behavior. Expressions gain meaning through how they are interpreted, not just how they are produced.</p>
+             <p>This research examines how emotions operate as pragmatic social signals—shaping decisions, regulating relationships, and aligning behavior in real time. A central claim is that emotional meaning is co-constructed, arising from the interplay between expresser, observer, and situation.</p>`,
+      papers: [
+        { text: 'Han et al. (in press). How expression, context and perspective determine judgments of emotion.', venue: 'IEEE TAC' },
+        { text: 'de Melo et al. (2023). Social Functions of Machine Emotional Expressions.', venue: 'Proceedings of the IEEE' },
+        { text: 'de Melo et al. (2013). Reading people\'s minds from emotion expressions in social decision making.', venue: 'IACM' },
+      ]
+    },
+    r02: {
+      num: 'R — 02',
+      title: 'Computational Models of Emotion',
+      sub: 'Formalizing how emotion shapes thought and behavior',
+      desc: `<p>What mechanisms generate emotion—and how do they influence decisions? This work develops computational models grounded in appraisal theory to answer that question with precision.</p>
+             <p>These models treat emotion as a structured inference process, linking interpretation of events to downstream cognition and action. They serve both as engineering tools and as testable theories, enabling rigorous evaluation beyond verbal accounts.</p>
+             <p>Recent work extends this approach to large language models, asking whether modern AI systems implement human-like emotional reasoning. This includes identifying where emotion-related computations arise within these systems and where they systematically diverge from human patterns.</p>`,
+      papers: [
+        { text: 'Tak et al. (2025). Mechanistic Interpretability of Emotion Inference in LLMs.', venue: 'ACL' },
+        { text: 'Tak & Gratch (2023). Is GPT a Computational Model of Emotion?', venue: 'ACII' },
+        { text: 'Gratch & Marsella (2004). A Domain-independent Framework for Modeling Emotion.', venue: 'Cognitive Systems Research' },
+      ]
+    },
+    r03: {
+      num: 'R — 03',
+      title: 'Negotiation, Persuasion & Social Influence',
+      sub: 'Emotion as strategy in social decision-making',
+      desc: `<p>Negotiation is where emotion and strategy collide. This work uses negotiation as a testbed for understanding social influence, examining how emotional expressions shape outcomes in mixed-motive interaction.</p>
+             <p>This research spans lab experiments, real-world dispute data, and interactive AI systems. It also contributes to field-building efforts such as the Harvard AI Negotiation Summit.</p>
+             <p>Across these settings, a consistent finding emerges: effective influence depends on modeling the other party's emotional state, not just their preferences.</p>`,
+      collab: [
+        { name: 'Peter Kim', url: 'https://www.marshall.usc.edu/personnel/peter-kim' },
+        { name: 'Jeanne Brett', url: 'https://www.kellogg.northwestern.edu/faculty/brett/' },
+        { name: 'Jared Curhan', url: 'https://mitsloan.mit.edu/faculty/directory/jared-curhan' },
+      ],
+      papers: [
+        { text: 'Rakshit et al. (2025). Emotionally-Aware Agents for Dispute Resolution.', venue: 'ACII' },
+        { text: 'Chawla et al. (2023). Social Influence Dialogue Systems: A Survey.', venue: 'EACL' },
+        { text: 'Gratch et al. (2015). Negotiation as a Challenge Problem for Virtual Humans.', venue: 'IVA' },
+      ]
+    },
+    r04: {
+      num: 'R — 04',
+      title: 'AI Models as Social Actors',
+      sub: 'When machines enter the social world',
+      desc: `<p>People treat AI as social actors—even when they know better. This work examines when and why human social expectations are applied to machines, and with what consequences.</p>
+             <p>This research shows that socially responsive systems can satisfy belonging needs, reduce anxiety, and shape disclosure. But AI is not human—and that gap matters. Differences in consistency, accountability, and social reasoning can undermine trust.</p>
+             <p>Work such as "It's only a computer" highlights how disclosure and framing shape user responses, pointing to when human-like behavior helps—and when it misleads.</p>`,
+      collab: [
+        { name: 'Nicole Krämer', url: 'https://www.uni-due.de/sozialpsychologie/kraemer.php' },
+      ],
+      papers: [
+        { text: 'Hladký et al. (2025). Steal and Smile: Emotion Regulation in Social Conflict.', venue: 'ACII' },
+        { text: 'Han et al. (2025). Personality Prompting for Embodied Agents.', venue: 'IVA' },
+        { text: 'Lucas et al. (2014). It\'s Only a Computer.', venue: 'Computers in Human Behavior' },
+      ]
+    },
+    r05: {
+      num: 'R — 05',
+      title: 'Virtual Humans as Teachers, Practitioners & Scientific Tools',
+      sub: 'Building systems that both act and reveal',
+      desc: `<p>Virtual humans are more than interfaces—they are experimental platforms and real-world tools. This work integrates three roles: <strong>Teachers</strong> (training social skills), <strong>Practitioners</strong> (delivering interventions), and <strong>Scientific instruments</strong> (testing theory).</p>
+             <p>Applications include mental health (e.g., SimSensei), negotiation training (e.g., NegotiAge), and interventions to improve social connection. These systems create scalable, low-stakes environments where people can practice and reveal behavior that is difficult to study otherwise.</p>
+             <p>At the same time, virtual humans function as controllable confederates, enabling precise causal tests of social and emotional processes.</p>`,
+      papers: [
+        { text: 'Hale et al. (2026). IVAs to Study Gender Bias in Negotiation.', venue: 'JMU' },
+        { text: 'West et al. (2025). Improving Social Connection with Weak Ties.', venue: 'Journal of Positive Psychology' },
+        { text: 'Murawski et al. (2024). NegotiAge.', venue: 'Journal of the American Geriatrics Society' },
+        { text: 'de Melo et al. (2014). Using Virtual Confederates to Study Bias.', venue: 'AOM' },
+      ]
+    },
+    r06: {
+      num: 'R — 06',
+      title: 'Societal Implications of AI in Social Roles',
+      sub: 'What happens when AI mediates human relationships?',
+      desc: `<p>As AI takes on roles like hiring, managing, and negotiating, it reshapes the social fabric of decision-making. This work examines the psychological and ethical consequences of that shift.</p>
+             <p>This research shows that AI can reduce "other regard"—the social pressure to treat others well—by increasing distance and enabling indirect action. People may use AI to do things they would not do themselves.</p>
+             <p>Related work shows that algorithmic systems can diminish perceived status and alter power dynamics. Together, these findings argue that the risks of AI are not just technical—they are fundamentally social and psychological.</p>`,
+      collab: [
+        { name: 'Nathanael Fast', url: 'https://www.marshall.usc.edu/personnel/nathanael-fast' },
+      ],
+      papers: [
+        { text: 'Hale et al. (2025). Fair Algorithms and Bias in Salary Disputes.', venue: 'AAMAS' },
+        { text: 'Jago et al. (2024). Algorithmic Management Diminishes Status.', venue: 'JESP' },
+        { text: 'Gratch & Fast (2022). The Power to Harm.', venue: 'Current Opinion in Psychology' },
+      ]
+    },
+  };
+
+  function openModal(id) {
+    const d = RESEARCH[id];
+    if (!d) return;
+
+    let collabHTML = '';
+    if (d.collab && d.collab.length) {
+      const links = d.collab.map((c, i) => {
+        const isLast = i === d.collab.length - 1;
+        const isSecondToLast = i === d.collab.length - 2;
+        const sep = !isLast
+          ? `<span class="modal-collab-sep">${isSecondToLast ? ', and' : ','}</span>`
+          : '';
+        return `<a href="${c.url}" target="_blank">${c.name}</a>${sep}`;
+      }).join(' ');
+      collabHTML = `<div class="modal-collab"><span class="modal-collab-label">In collaboration with</span> ${links}</div>`;
+    }
+
+    const papersHTML = d.papers.map(p =>
+      `<li>${p.text} <span class="paper-venue">${p.venue}</span></li>`
+    ).join('');
+
+    document.getElementById('modal-content').innerHTML = `
+      <div class="modal-num">${d.num}</div>
+      <div class="modal-title">${d.title}</div>
+      <div class="modal-sub">${d.sub}</div>
+      <div class="modal-desc">${d.desc}</div>
+      ${collabHTML}
+      <div class="modal-papers-label">Selected Papers</div>
+      <ul class="modal-papers">${papersHTML}</ul>
+    `;
+
+    document.getElementById('modal-backdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal-backdrop').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeOnBackdrop(e) {
+    if (e.target === document.getElementById('modal-backdrop')) closeModal();
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  document.getElementById("nav-toggle").addEventListener("click", function() {
+    this.classList.toggle("open");
+    document.getElementById("nav-links").classList.toggle("open");
+  });
+</script>
 </body>
 </html>
