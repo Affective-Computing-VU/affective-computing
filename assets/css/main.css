@@ -109,6 +109,13 @@ nav { background: var(--blk); border-bottom: 3px solid var(--gold); display: fle
 .pi-lnks a { font-size: 13px; font-weight: 500; color: var(--gold-d); text-decoration: none; padding: 4px 13px; border: 1px solid var(--gold); border-radius: 4px; background: var(--gold-l); transition: all .18s; }
 .pi-lnks a:hover { background: var(--gold); color: #fff; }
 
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
 /* PEOPLE */
 .grp-lbl { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 500; color: var(--muted); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: .14em; padding-bottom: .6rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: .75rem; }
 .grp-lbl::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
